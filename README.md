@@ -135,20 +135,36 @@ Es importante contar con el setUp() que se encargará de firmar y verificar la p
 > **NOTA:** Los datos de la siguiente petición son solo representativos.
 
 ```php
-public function testGetFIS()
+public function testGetScoreNoHitDG()
 {
+    $persona = new \FIS\MX\Client\Model\PersonaPeticion();
+    $domicilio = new \FIS\MX\Client\Model\DomicilioPeticion();        
+    $estado = new \FIS\MX\Client\Model\CatalogoEstados();
+        
+    $domicilio->setDireccion(null);
+    $domicilio->setColoniaPoblacion(null);
+    $domicilio->setDelegacionMunicipio(null);
+    $domicilio->setCiudad(null);
+    $domicilio->setEstado($estado::CDMX);
+    $domicilio->setCP(null);
 
-    $request = new \fis\Client\Model\Peticion();
-
-   // TO DO
-
+    $persona->setApellidoPaterno("PATERNO");
+    $persona->setApellidoMaterno("MATERNO");
+    $persona->setApellidoAdicional(null);
+    $persona->setPrimerNombre("NOMBRE");
+    $persona->setSegundoNombre(null);
+    $persona->setFechaNacimiento("04-01-1980");
+    $persona->setRFC(null);
+    $persona->setDomicilio($domicilio);
+            
     try {
-        // TO DO
-    } catch (ApiException $e) {
-        // TO DO
+        $result = $this->apiInstance->getScoreNoHitDG($this->x_api_key, $this->username, $this->password, $persona);
+        print_r($result);
+        $this->assertTrue($result->getFolioConsulta()!==null);
+    } catch (Exception $e) {
+        echo 'Exception when calling ApiTest->testGetScoreNoHitDG: ', $e->getMessage(), PHP_EOL;
     }
-    $this->assertTrue($this->apiInstance->getStatusCode() == 200);
-}
+} 
 ```
 
 ## Pruebas unitarias

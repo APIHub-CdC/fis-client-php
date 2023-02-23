@@ -12,15 +12,11 @@ class Respuesta implements ModelInterface, ArrayAccess
     protected static $fisModelName = 'Respuesta';
     
     protected static $fisTypes = [
-        'datos_generales' => 'object',
-        'domicilio' => 'object',
         'score_no_hit' => 'object',
         'folio_consulta' => 'string'
     ];
     
     protected static $fisFormats = [
-        'datos_generales' => null,
-        'domicilio' => null,
         'score_no_hit' => null,
         'folio_consulta' => null
     ];
@@ -36,22 +32,16 @@ class Respuesta implements ModelInterface, ArrayAccess
     }
     
     protected static $attributeMap = [
-        'datos_generales' => 'datosGenerales',
-        'domicilio' => 'domicilio',
         'score_no_hit' => 'scoreNoHit',
         'folio_consulta' => 'folioConsulta'
     ];
     
     protected static $setters = [
-        'datos_generales' => 'setDatosGenerales',
-        'domicilio' => 'setDomicilio',
         'score_no_hit' => 'setScoreNoHit',
         'folio_consulta' => 'setFolioConsulta'
     ];
     
     protected static $getters = [
-        'datos_generales' => 'getDatosGenerales',
-        'domicilio' => 'getDomicilio',
         'score_no_hit' => 'getScoreNoHit',
         'folio_consulta' => 'getFolioConsulta'
     ];
@@ -82,8 +72,6 @@ class Respuesta implements ModelInterface, ArrayAccess
     
     public function __construct(array $data = null)
     {
-        $this->container['datos_generales'] = isset($data['datos_generales']) ? $data['datos_generales'] : null;
-        $this->container['domicilio'] = isset($data['domicilio']) ? $data['domicilio'] : null;
         $this->container['score_no_hit'] = isset($data['score_no_hit']) ? $data['score_no_hit'] : null;
         $this->container['folio_consulta'] = isset($data['folio_consulta']) ? $data['folio_consulta'] : null;
     }
@@ -99,27 +87,8 @@ class Respuesta implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
     
-    public function getDatosGenerales()
-    {
-        return $this->container['datos_generales'];
-    }
-    
-    public function setDatosGenerales($datos_generales)
-    {
-        $this->container['datos_generales'] = $datos_generales;
-        return $this;
-    }
-    
-    public function getDomicilio()
-    {
-        return $this->container['domicilio'];
-    }
-    
-    public function setDomicilio($domicilio)
-    {
-        $this->container['domicilio'] = $domicilio;
-        return $this;
-    }
+
+
     
     public function getScoreNoHit()
     {

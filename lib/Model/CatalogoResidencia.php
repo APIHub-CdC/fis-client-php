@@ -6,21 +6,21 @@ use \FIS\MX\Client\ObjectSerializer;
 class CatalogoResidencia
 {
     
-    const 1 = 1;
-    const 2 = 2;
-    const 3 = 3;
-    const 4 = 4;
-    const 5 = 5;
+    const _1 = 1;
+    const _2 = 2;
+    const _3 = 3;
+    const _4 = 4;
+    const _5 = 5;
     
     
     public static function getAllowableEnumValues()
     {
         return [
-            self::1,
-            self::2,
-            self::3,
-            self::4,
-            self::5,
+            self::_1,
+            self::_2,
+            self::_3,
+            self::_4,
+            self::_5,
         ];
     }
 }
